@@ -14,8 +14,8 @@ services:
     command: /usr/local/bin/start-namenode.sh
     hostname: namenode
     volumes:
-      - /e/apps/hostpath/hadoop/data:/data
-      - /e/apps/hostpath/hadoop/in:/in
+      - /apps/hostpath/hadoop/data:/data
+      - /apps/hostpath/hadoop/in:/in
 #        
   datanode:
     image: hadoop:3.2.0
@@ -27,8 +27,8 @@ services:
       - namenode
     hostname: datanode
     volumes:
-      - /e/apps/hostpath/hadoop/data:/data
-      - /e/apps/hostpath/hadoop/in:/in
+      - /apps/hostpath/hadoop/data:/data
+      - /apps/hostpath/hadoop/in:/in
 #          
   secondarynamenode:
     image: hadoop:3.2.0
@@ -74,4 +74,4 @@ services:
       - yarn 
       - namenode
     volumes:
-      - /e/apps/hostpath/hadoop/in:/in  
+      - /apps/hostpath/hadoop/in:/in
