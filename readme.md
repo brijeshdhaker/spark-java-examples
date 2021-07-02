@@ -11,3 +11,10 @@ set PATH=%PATH%;%HADOOP_HOME%\bin
 
 ##
     docker-compose --file docker/spark/docker-compose.yaml down
+
+docker exec spark-master /usr/local/spark/bin/spark-submit \
+--master spark://spark-master:7077 \
+--deploy-mode cluster \
+--conf spark.eventLog.dir=file:///apps/hostpath/spark/logs \
+--class com.spark.java.tutorial.rdd.airports.AirportsByLatitudeSolution \
+/usr/local/spark/work-dir/spark-java-examples.jar %params%
